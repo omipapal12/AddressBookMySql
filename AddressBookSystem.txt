@@ -115,3 +115,18 @@ mysql> SELECT * FROM addressbook_service;
 +----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+
 2 rows in set (0.01 sec)
 
+********
+UC5:- Ability to delete a person using person's name
+********
+
+mysql> DELETE FROM addressbook_service where FirstName = 'Omkar';
+Query OK, 1 row affected (0.18 sec)
+
+mysql> SELECT * FROM addressbook_service;
++----+-----------+----------+----------+------+-------------+--------+-------------+---------------------+
+| id | FirstName | LastName | Address  | City | State       | Zip    | PhoneNumber | Email               |
++----+-----------+----------+----------+------+-------------+--------+-------------+---------------------+
+|  2 | Vikas     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7704567802 | vtpapal12@gmail.com |
++----+-----------+----------+----------+------+-------------+--------+-------------+---------------------+
+1 row in set (0.14 sec)
+
