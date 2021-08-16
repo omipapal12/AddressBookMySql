@@ -170,3 +170,24 @@ mysql> SELECT City, COUNT(FirstName) FROM addressbook_service WHERE City = 'Pune
 +------+------------------+
 1 row in set (0.00 sec)
 
+********
+UC8:- Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+********
+
+mysql> SELECT FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email FROM addressbook_service ORDER BY FirstName;
++-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+| FirstName | LastName | Address  | City | State       | Zip    | PhoneNumber | Email                |
++-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+| Omkar     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7709547162 | omipapal12@gmail.com |
+| Vikas     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7704567802 | vtpapal12@gmail.com  |
++-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+2 rows in set (0.06 sec)
+
+mysql> SELECT FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email FROM addressbook_service ORDER BY LastName;
++-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+| FirstName | LastName | Address  | City | State       | Zip    | PhoneNumber | Email                |
++-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+| Vikas     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7704567802 | vtpapal12@gmail.com  |
+| Omkar     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7709547162 | omipapal12@gmail.com |
++-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+2 rows in set (0.00 sec)
