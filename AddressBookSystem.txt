@@ -150,3 +150,23 @@ mysql> SELECT State FROM addressbook_service WHERE FirstName = 'Vikas';
 +-------------+
 1 row in set (0.00 sec)
 
+********
+UC7:- Ability to understand the size of address book by City and State
+********
+
+mysql> SELECT State, COUNT(FirstName) FROM addressbook_service WHERE State = 'Maharashtra';
++-------------+------------------+
+| State       | COUNT(FirstName) |
++-------------+------------------+
+| Maharashtra |                2 |
++-------------+------------------+
+1 row in set (0.05 sec)
+
+mysql> SELECT City, COUNT(FirstName) FROM addressbook_service WHERE City = 'Pune';
++------+------------------+
+| City | COUNT(FirstName) |
++------+------------------+
+| Pune |                2 |
++------+------------------+
+1 row in set (0.00 sec)
+
