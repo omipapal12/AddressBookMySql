@@ -191,3 +191,55 @@ mysql> SELECT FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email FROM a
 | Omkar     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7709547162 | omipapal12@gmail.com |
 +-----------+----------+----------+------+-------------+--------+-------------+----------------------+
 2 rows in set (0.00 sec)
+
+*********
+UC9:-Ability to identify each Address Book with name and Type
+*********
+
+mysql> ALTER TABLE addressbook_service ADD type VARCHAR(150) AFTER Email;
+Query OK, 0 rows affected (0.99 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE addressbook_service;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int unsigned | NO   | PRI | NULL    | auto_increment |
+| FirstName   | varchar(150) | NO   |     | NULL    |                |
+| LastName    | varchar(150) | NO   |     | NULL    |                |
+| Address     | varchar(150) | NO   |     | NULL    |                |
+| City        | varchar(150) | NO   |     | NULL    |                |
+| State       | varchar(150) | NO   |     | NULL    |                |
+| Zip         | double       | NO   |     | NULL    |                |
+| PhoneNumber | double       | NO   |     | NULL    |                |
+| Email       | varchar(150) | NO   |     | NULL    |                |
+| type        | varchar(150) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+10 rows in set (0.07 sec)
+
+mysql> UPDATE addressbook_service SET type = 'Family' WHERE FirstName = 'Vikas';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM addressbook_service;
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+--------+
+| id | FirstName | LastName | Address  | City | State       | Zip    | PhoneNumber | Email                | type   |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+--------+
+|  2 | Vikas     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7704567802 | vtpapal12@gmail.com  | Family |
+|  3 | Omkar     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7709547162 | omipapal12@gmail.com | NULL   |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> UPDATE addressbook_service SET type = 'Friends' WHERE FirstName = 'Omkar';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM addressbook_service;
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+---------+
+| id | FirstName | LastName | Address  | City | State       | Zip    | PhoneNumber | Email                | type    |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+---------+
+|  2 | Vikas     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7704567802 | vtpapal12@gmail.com  | Family  |
+|  3 | Omkar     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7709547162 | omipapal12@gmail.com | Friends |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+---------+
+2 rows in set (0.00 sec)
+
