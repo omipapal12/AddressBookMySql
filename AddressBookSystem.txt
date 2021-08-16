@@ -67,3 +67,33 @@ mysql> DESCRIBE addressbook_service;
 +-------------+--------------+------+-----+---------+----------------+
 9 rows in set (0.04 sec)
 
+********
+UC3:-Ability to insert new Contacts to Address Book
+********
+
+mysql> INSERT INTO  addressbook_service (FirstName,LastName,Address,City,State,Z
+ip,PhoneNumber,Email) VALUES
+    -> ('Omkar', 'Papal', 'Hadapsar', 'Pune', 'Maharashtra', '412308', '77095471
+62', 'omipapal12@gmail.com');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> SELECT * FROM addressbook_service;
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+| id | FirstName | LastName | Address  | City | State       | Zip    | PhoneNumber | Email                |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+|  1 | Omkar     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7709547162 | omipapal12@gmail.com |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+1 row in set (0.07 sec)
+
+mysql> INSERT INTO  addressbook_service (FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email) VALUES
+    -> ('Vikas', 'Papal', 'Hadapsar', 'Pune', 'Maharashtra', '412308', '7704567802', 'vtpapal12@gmail.com');
+Query OK, 1 row affected (0.18 sec)
+
+mysql> SELECT * FROM addressbook_service;
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+| id | FirstName | LastName | Address  | City | State       | Zip    | PhoneNumber | Email                |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+|  1 | Omkar     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7709547162 | omipapal12@gmail.com |
+|  2 | Vikas     | Papal    | Hadapsar | Pune | Maharashtra | 412308 |  7704567802 | vtpapal12@gmail.com  |
++----+-----------+----------+----------+------+-------------+--------+-------------+----------------------+
+2 rows in set (0.00 sec)
