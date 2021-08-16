@@ -21,3 +21,49 @@ mysql> show databases;
 +---------------------+
 8 rows in set (0.07 sec)
 
+*******
+UC2:-Ability to create a Address Book Table with first and last names, address, city, state, zip, phone number and email as its attributes
+*******
+
+mysql> USE addressbook_service;
+Database changed
+
+mysql> SELECT DATABASE();
++---------------------+
+| DATABASE()          |
++---------------------+
+| addressbook_service |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE addressbook_service
+    -> (
+    -> id      INT unsigned NOT NULL AUTO_INCREMENT,
+    -> FirstName     VARCHAR(150)  NOT NULL,
+    -> LastName      VARCHAR(150)  NOT NULL,
+    -> Address       VARCHAR(150)  NOT NULL,
+    -> City          VARCHAR(150)  NOT NULL,
+    -> State         VARCHAR(150)  NOT NULL,
+    -> Zip           DOUBLE NOT NULL,
+    -> PhoneNumber   DOUBLE NOT NULL,
+    -> Email         VARCHAR(150)  NOT NULL,
+    -> PRIMARY KEY   (id)
+    -> );
+Query OK, 0 rows affected (1.43 sec)
+
+mysql> DESCRIBE addressbook_service;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int unsigned | NO   | PRI | NULL    | auto_increment |
+| FirstName   | varchar(150) | NO   |     | NULL    |                |
+| LastName    | varchar(150) | NO   |     | NULL    |                |
+| Address     | varchar(150) | NO   |     | NULL    |                |
+| City        | varchar(150) | NO   |     | NULL    |                |
+| State       | varchar(150) | NO   |     | NULL    |                |
+| Zip         | double       | NO   |     | NULL    |                |
+| PhoneNumber | double       | NO   |     | NULL    |                |
+| Email       | varchar(150) | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+9 rows in set (0.04 sec)
+
